@@ -1,33 +1,49 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Menu, X, Plane, Phone } from "lucide-react";
+import { Menu, X, Plane } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const navLinks = [
+interface NavLink {
+  name: string;
+  path: string;
+  isButton?: boolean;
+}
+
+const navLinks: NavLink[] = [
   { name: "Home", path: "/" },
   { name: "Destinations", path: "/destinations" },
   { name: "Services", path: "/services" },
   { name: "Industrial Visits", path: "/industrial-visits" },
+  { name: "Student Tours", path: "/student-industrial-tours" },
+  { name: "Corporate Wellness", path: "/corporate-wellness" },
+  { name: "Visa & Flight Course", path: "/visa-flight-course" },
   { name: "Packages", path: "/packages" },
   { name: "About Us", path: "/about" },
-  { name: "Contact", path: "/contact" },
+  { name: "Contact", path: "/contact", isButton: true },
 ];
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isActive = (path: string) => location.pathname === path;
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  const isActive = (path: string): boolean => location.pathname === path;
 
   return (
     <header
@@ -42,7 +58,7 @@ const Navbar = () => {
           <div className="w-10 h-10 rounded-full bg-gradient-warm flex items-center justify-center shadow-travel-sm group-hover:shadow-glow transition-all duration-300">
             <Plane className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="text-xl font-bold text-foreground transition-colors duration-300">
+          <span className="text-xl font-bold text-foreground">
             Wanderlust
           </span>
         </Link>
@@ -55,7 +71,9 @@ const Navbar = () => {
               to={link.path}
               className={cn(
                 "px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300",
-                isActive(link.path)
+                link.isButton
+                  ? "ml-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-travel-sm"
+                  : isActive(link.path)
                   ? "text-primary bg-primary/10"
                   : "text-foreground hover:text-primary hover:bg-primary/5"
               )}
@@ -65,27 +83,18 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* CTA & Mobile Toggle */}
-        <div className="flex items-center gap-3">
-          <Link to="/contact" className="hidden md:block">
-            <Button 
-              variant="default" 
-              size="sm"
-              className="gap-2"
-            >
-              <Phone className="w-4 h-4" />
-              Get Quote
-            </Button>
-          </Link>
-
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg transition-colors text-foreground hover:bg-muted"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+          className="lg:hidden p-2 rounded-lg transition-colors text-foreground hover:bg-muted"
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
+        </button>
       </div>
 
       {/* Mobile Menu */}
@@ -103,7 +112,9 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)}
               className={cn(
                 "px-4 py-3 rounded-lg font-medium transition-all duration-300",
-                isActive(link.path)
+                link.isButton
+                  ? "mt-2 bg-primary text-primary-foreground text-center shadow-travel-sm"
+                  : isActive(link.path)
                   ? "text-primary bg-primary/10"
                   : "text-foreground hover:text-primary hover:bg-primary/5"
               )}
@@ -111,14 +122,6 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <div className="mt-4 px-4">
-            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button variant="warm" className="w-full">
-                <Phone className="w-4 h-4 mr-2" />
-                Get a Free Quote
-              </Button>
-            </Link>
-          </div>
         </nav>
       </div>
     </header>

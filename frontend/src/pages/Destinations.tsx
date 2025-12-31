@@ -116,8 +116,8 @@ const Destinations = () => {
           </div>
         </section>
 
-        {/* Filters */}
-        <section className="py-8 border-b border-border sticky top-[72px] bg-background/95 backdrop-blur-md z-40">
+        {/* Filters - Sticky with solid background */}
+        <section className="py-4 border-b border-border bg-background">
           <div className="container mx-auto">
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
               <div className="relative w-full md:w-96">
