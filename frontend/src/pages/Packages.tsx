@@ -7,16 +7,18 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Filter, SlidersHorizontal } from "lucide-react";
 
-import destinationDubai from "@/assets/destination-dubai.jpg";
-import destinationMalaysia from "@/assets/destination-malaysia.jpg";
-import destinationSingapore from "@/assets/destination-singapore.jpg";
-import destinationVietnam from "@/assets/destination-vietnam.jpg";
+import packageDubaiLuxury from "@/assets/package-dubai-luxury.jpg";
+import packageMalaysiaAdventure from "@/assets/package-malaysia-adventure.jpg";
+import packageSingaporeCity from "@/assets/package-singapore-city.jpg";
+import packageVietnamCultural from "@/assets/package-vietnam-cultural.jpg";
+import packageDubaiHoneymoon from "@/assets/package-dubai-honeymoon.jpg";
+import packageSingaporeFamily from "@/assets/package-singapore-family.jpg";
 
 const allPackages = [
   {
     title: "Dubai Extravaganza - 5 Days of Luxury",
     destination: "Dubai, UAE",
-    image: destinationDubai,
+    image: packageDubaiLuxury,
     duration: "5 Days / 4 Nights",
     groupSize: "2-6 People",
     rating: 4.9,
@@ -30,7 +32,7 @@ const allPackages = [
   {
     title: "Malaysia Complete Explorer",
     destination: "Malaysia",
-    image: destinationMalaysia,
+    image: packageMalaysiaAdventure,
     duration: "7 Days / 6 Nights",
     groupSize: "2-8 People",
     rating: 4.8,
@@ -42,7 +44,7 @@ const allPackages = [
   {
     title: "Singapore City Wonders",
     destination: "Singapore",
-    image: destinationSingapore,
+    image: packageSingaporeCity,
     duration: "4 Days / 3 Nights",
     groupSize: "2-4 People",
     rating: 4.9,
@@ -54,7 +56,7 @@ const allPackages = [
   {
     title: "Vietnam Heritage Trail",
     destination: "Vietnam",
-    image: destinationVietnam,
+    image: packageVietnamCultural,
     duration: "8 Days / 7 Nights",
     groupSize: "2-10 People",
     rating: 4.7,
@@ -66,7 +68,7 @@ const allPackages = [
   {
     title: "Dubai Romantic Getaway",
     destination: "Dubai, UAE",
-    image: destinationDubai,
+    image: packageDubaiHoneymoon,
     duration: "4 Days / 3 Nights",
     groupSize: "2 People",
     rating: 4.9,
@@ -78,7 +80,7 @@ const allPackages = [
   {
     title: "Singapore Family Fun",
     destination: "Singapore",
-    image: destinationSingapore,
+    image: packageSingaporeFamily,
     duration: "5 Days / 4 Nights",
     groupSize: "4-6 People",
     rating: 4.8,

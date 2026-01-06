@@ -17,16 +17,16 @@ import {
   Briefcase
 } from "lucide-react";
 
-import destinationDubai from "@/assets/destination-dubai.jpg";
-import destinationSingapore from "@/assets/destination-singapore.jpg";
-import destinationMalaysia from "@/assets/destination-malaysia.jpg";
+import industrialFactoryTour from "@/assets/industrial-factory-tour.jpg";
+import industrialTechHub from "@/assets/industrial-tech-hub.jpg";
+import industrialAutomotive from "@/assets/industrial-automotive.jpg";
 
 const industrialPackages = [
   {
     title: "Dubai Industrial Innovation Tour",
     location: "Dubai, UAE",
     duration: "5 Days / 4 Nights",
-    image: destinationDubai,
+    image: industrialFactoryTour,
     groupSize: "15-30 participants",
     industries: ["Aerospace", "Construction", "Renewable Energy"],
     highlights: [
@@ -42,7 +42,7 @@ const industrialPackages = [
     title: "Singapore Tech & Manufacturing Hub",
     location: "Singapore",
     duration: "4 Days / 3 Nights",
-    image: destinationSingapore,
+    image: industrialTechHub,
     groupSize: "10-25 participants",
     industries: ["Technology", "Pharmaceuticals", "Electronics"],
     highlights: [
@@ -58,7 +58,7 @@ const industrialPackages = [
     title: "Malaysia Manufacturing Excellence",
     location: "Kuala Lumpur, Malaysia",
     duration: "4 Days / 3 Nights",
-    image: destinationMalaysia,
+    image: industrialAutomotive,
     groupSize: "15-35 participants",
     industries: ["Automotive", "Electronics", "Palm Oil Processing"],
     highlights: [

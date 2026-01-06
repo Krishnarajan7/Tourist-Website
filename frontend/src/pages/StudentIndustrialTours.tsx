@@ -22,10 +22,10 @@ import {
   Leaf
 } from "lucide-react";
 
-import destinationDubai from "@/assets/destination-dubai.jpg";
-import destinationSingapore from "@/assets/destination-singapore.jpg";
-import destinationMalaysia from "@/assets/destination-malaysia.jpg";
-import destinationVietnam from "@/assets/destination-vietnam.jpg";
+import studentTechTour from "@/assets/student-tech-tour.jpg";
+import studentHealthcareTour from "@/assets/student-healthcare-tour.jpg";
+import studentAutomotiveTour from "@/assets/student-automotive-tour.jpg";
+import studentAgritechTour from "@/assets/student-agritech-tour.jpg";
 
 const studentPackages = [
   {
@@ -33,7 +33,7 @@ const studentPackages = [
     location: "Singapore + Malaysia",
     duration: "5 Days / 4 Nights",
     trainingDays: 2,
-    image: destinationSingapore,
+    image: studentTechTour,
     groupSize: "30-50 students",
     targetAudience: "Engineering & IT Students",
     industries: ["Technology", "Data Centers", "Smart Manufacturing"],
@@ -52,7 +52,7 @@ const studentPackages = [
     location: "Dubai, UAE",
     duration: "5 Days / 4 Nights",
     trainingDays: 2,
-    image: destinationDubai,
+    image: studentHealthcareTour,
     groupSize: "25-40 students",
     targetAudience: "Medical & Pharmacy Students",
     industries: ["Healthcare", "Pharmaceuticals", "Biotech"],
@@ -71,7 +71,7 @@ const studentPackages = [
     location: "Kuala Lumpur, Malaysia",
     duration: "3 Days / 2 Nights",
     trainingDays: 1,
-    image: destinationMalaysia,
+    image: studentAutomotiveTour,
     groupSize: "30-60 students",
     targetAudience: "Mechanical & Automobile Engineering",
     industries: ["Automotive", "Electronics", "Heavy Machinery"],
@@ -90,7 +90,7 @@ const studentPackages = [
     location: "Vietnam",
     duration: "4 Days / 3 Nights",
     trainingDays: 1,
-    image: destinationVietnam,
+    image: studentAgritechTour,
     groupSize: "25-45 students",
     targetAudience: "Agriculture & MBA Students",
     industries: ["Agri-Tech", "Food Processing", "Sustainability"],
